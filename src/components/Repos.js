@@ -7,12 +7,11 @@ class Repos extends Component {
   constructor(props){
     super(props);
 
+    console.log("The props of Repos are:", props.names);
+
     this.state = { names: props.names};
 
-  }
 
-  componentDidUpdate() {
-    console.log("The state of the repo is: ", this.state);
   }
 
   render(){
@@ -23,7 +22,7 @@ class Repos extends Component {
           <i className="large github aligned icon"></i>
         <div className="content">
           <a className="header" href={this.props.gitURL}>
-        <h2> {this.props.individualRepo.name} </h2>
+        <h2> {this.props.names} </h2>
        </a>
        </div>
      </div>

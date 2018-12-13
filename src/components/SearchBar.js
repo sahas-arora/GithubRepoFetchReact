@@ -26,6 +26,7 @@ class SearchBar extends Component {
     event.preventDefault();
 
     this.setState({inputValue: ''});
+    console.log("You just cleared the form");
   }
 
 

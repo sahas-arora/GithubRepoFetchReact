@@ -13,7 +13,37 @@ class App extends Component {
     super(props);
     this.state = { repos: [], names: [] };
     this.onSubmit = this.onSubmit.bind(this);
+    this.onListChange = this.onListChange.bind(this);
 
+  }
+
+  onListChange(newList) {
+
+
+    let filterVariable = this.state.repos.map((repo) => {
+      if(repo.name.toLowerCase().includes(newList)) {
+        return repo.name;
+      } else{
+      return (
+        <div>
+          It's okay
+        </div>
+      );
+    }
+    });
+
+    this.setState({repos: filterVariable});
+    console.log("The filter variable is:", filterVariable);
+
+
+
+    // let someVariable = this.state.repos.map((repository) => {
+    //       if(repository.name.includes(newList)) {
+    //           return(repository);
+    //   }
+    // });
+    // console.log("someVariable is:", someVariable);
+    // this.setState({repos: someVariable});
   }
 
   async onSubmit(inputValue) {
@@ -39,7 +69,7 @@ class App extends Component {
     return(
       <div>
         <SearchBar whenUserClicksOnMe={this.onSubmit}/>
-        <FilterSearchBar repos={this.state.repos} names={this.state.names}/>
+        <FilterSearchBar filtering={this.onListChange} repos={this.state.repos} names={this.state.names}/>
         <RepoList repositories={this.state.repos} names={this.state.names}/>
       </div>
     );
