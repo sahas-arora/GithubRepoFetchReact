@@ -11,8 +11,9 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = { repos: [] };
+    this.state = { repos: [], names: [] };
     this.onSubmit = this.onSubmit.bind(this);
+
   }
 
   async onSubmit(inputValue) {
@@ -23,18 +24,23 @@ class App extends Component {
       }
     });
 
-    this.setState({repos: response.data});
+    this.setState({
+      repos: response.data,
+      names: response.data.map((repositories)=> {
+        return repositories.name
+      })
+    });
     console.log("The state is: ", this.state);
-  }
 
+  }
 
 
   render(){
     return(
       <div>
-        <SearchBar whenUserClicksOnMe={this.onSubmit} />
-        <FilterSearchBar repos={this.state.repos}/>
-        <RepoList repositories={this.state.repos}/>
+        <SearchBar whenUserClicksOnMe={this.onSubmit}/>
+        <FilterSearchBar repos={this.state.repos} names={this.state.names}/>
+        <RepoList repositories={this.state.repos} names={this.state.names}/>
       </div>
     );
   }

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 
 
+
 class SearchBar extends Component {
 
 
@@ -12,8 +13,8 @@ class SearchBar extends Component {
     this.state = { inputValue: ''};
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
-  }
 
+  }
 
   onFormSubmit(event){
     event.preventDefault();
@@ -26,6 +27,8 @@ class SearchBar extends Component {
 
     this.setState({inputValue: ''});
   }
+
+
 
 
   render(){
@@ -51,7 +54,6 @@ class SearchBar extends Component {
     </div>
       </form>
     </div>
-
     );
   }
 }

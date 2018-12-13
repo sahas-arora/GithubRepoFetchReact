@@ -7,20 +7,15 @@ class Repos extends Component {
   constructor(props){
     super(props);
 
-    if(!props.individualRepo){
-      return(
-        <div>
-          There are no public repositories for that user-name. Search for a different user.
-        </div>
-      );
-    }
+    this.state = { names: props.names};
 
   }
 
+  componentDidUpdate() {
+    console.log("The state of the repo is: ", this.state);
+  }
 
   render(){
-
-
     return(
       <div>
       <div className="ui relaxed divided list">
