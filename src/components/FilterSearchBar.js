@@ -1,29 +1,9 @@
 
 
-import React, { Component } from 'react';
-import RepoList from './RepoList';
+import React from 'react';
 
-// let filteredLisrt =
+const FilterSearchBar = (props) => {
 
-class FilterSearchBar extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {inputValue: []};
-
-  }
-
-  // componentDidMount() {
-  //     this.setState({names: this.props.names});
-  //   }
-  // let filteredList = (event) => {
-  //   if(event.target.value === RepoList.state.names)
-  // }
-
-
-
-
-  render() {
   return(
     <div className="field">
       <br />
@@ -33,7 +13,7 @@ class FilterSearchBar extends Component {
           type="text"
           placeholder="Apply any filters"
           onChange={(event) => {
-              this.props.filtering(event.target.value);  
+              props.filtering(event.target.value);
           }
           }
           >
@@ -43,6 +23,6 @@ class FilterSearchBar extends Component {
     </div>
   );
 }
-}
+
 
 export default FilterSearchBar;

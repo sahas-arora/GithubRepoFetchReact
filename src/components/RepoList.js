@@ -14,15 +14,10 @@ const RepoList = (props) => {
   }
 
 
-  let individualRepo = props.repositories.map((repo) => {
-
-    if(!repo){
-      return <div>
-      </div>
-    } else
+  let individualRepo = props.updatedRepositories.map((repo) => {
     return(
-      <div key={repo.id}>
-      <Repos individualRepo={repo} gitURL={repo.html_url} names={repo.name} />
+      <div key={repo.name}>
+      <Repos individualRepo={repo} />
     </div>
     );
   });
